@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,12 +123,31 @@ namespace LemonadeStand
             }
             numberOfDaysToPlay = int.Parse(userInput);
         }
+
+        public void DisplayInfoForEachPlayer(List<Player> players)
+        {
+            Console.WriteLine();
+            Console.WriteLine("------------------------------------------");
+            foreach(Player person in players)
+            {
+                Console.WriteLine($"Information for player {person.name}");
+                Console.WriteLine($"Your wallet contains: {person.wallet.money.ToString("C", CultureInfo.CurrentCulture)}");
+                Console.WriteLine();
+                Console.WriteLine($" {person.name} your inventory contains the following:");
+                Console.WriteLine($"Lemons: {player.inventory.lemons.Count()}");
+                Console.WriteLine($"IceCubes: {player.inventory.iceCubes.Count()}");
+                Console.WriteLine($"Cups: {player.inventory.cups.Count()}");
+                Console.WriteLine($"Sugar Cubes: {player.inventory.lemons.Count()}");
+            }
+            Console.WriteLine("------------------------------------------");
+        }
         public void RunGame()
         {
             DisplayRules();
             SetGameMode();
             CreatePlayer();
             SetNumberOfDaysToPlay();
+            DisplayInfoForEachPlayer(players);
            
         }
     }

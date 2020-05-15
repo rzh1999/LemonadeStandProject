@@ -14,6 +14,12 @@ namespace LemonadeStand
         public Recipie recipie;
         public Pitcher pitcher;
 
+        public Player()
+        {
+            inventory = new Inventory();
+            wallet = new Wallet();
+            recipie = new Recipie();
+            pitcher = new Pitcher();        }
     }
 
    
