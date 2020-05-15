@@ -16,6 +16,7 @@ namespace LemonadeStand
         public int currentDay;
         List<Player> players;
         public int numberOfDaysToPlay;
+        Weather weather = new Weather();
 
         public Game()
         {
@@ -138,16 +139,51 @@ namespace LemonadeStand
                 Console.WriteLine($"IceCubes: {player.inventory.iceCubes.Count()}");
                 Console.WriteLine($"Cups: {player.inventory.cups.Count()}");
                 Console.WriteLine($"Sugar Cubes: {player.inventory.lemons.Count()}");
+                Console.WriteLine();
+                // \u00b0 outputs degree symbol the F is for fahrenheit
+                Console.WriteLine($"Weather prediction is {weather.temperature}\u00b0F {weather.predictedForecast}");
             }
             Console.WriteLine("------------------------------------------");
         }
+        //public void CreateARecipie()
+        //{
+        //    Console.WriteLine();
+        //    Console.WriteLine($"Make a choice:");
+        //    Console.WriteLine($"1. Use default recipie");
+        //    Console.WriteLine($"2. Create your own recipie.");
+        //    string userInput = Console.ReadLine();
+
+        //    bool result;
+        //    int choice;
+        //    result = int.TryParse(userInput, out choice);
+        //    while (choice < 1 || choice > 2)
+        //    {
+        //        Console.WriteLine($"Please enter a valid choice");
+        //        userInput = Console.ReadLine();
+        //        result = int.TryParse(userInput, out choice);
+        //    }
+
+        //    if (choice == 2)
+        //    {
+        //        Recipie recipie = new Recipie();
+        //        Console.WriteLine($"Create a recipie");
+        //        recipie.amountOfIceCubes = 2;
+        //        recipie.amountOfLemons = 4;
+        //        recipie.amountOfSugarCubes = 6;
+                
+        //    }
+        //}
         public void RunGame()
         {
             DisplayRules();
             SetGameMode();
             CreatePlayer();
             SetNumberOfDaysToPlay();
+            
+            
+            weather.GenerateWeatherPrediction();
             DisplayInfoForEachPlayer(players);
+            //CreateARecipie();
            
         }
     }
