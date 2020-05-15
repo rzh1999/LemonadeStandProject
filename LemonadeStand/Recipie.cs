@@ -15,9 +15,9 @@ namespace LemonadeStand
 
         public Recipie()
         {
-            amountOfLemons = 0;
-            amountOfSugarCubes = 0;
-            amountOfIceCubes = 0;
+            amountOfLemons = 4;
+            amountOfSugarCubes = 6;
+            amountOfIceCubes = 20;
             pricePerCup = 0.0;
         }
     }

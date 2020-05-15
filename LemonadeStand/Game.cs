@@ -14,6 +14,7 @@ namespace LemonadeStand
         public List<Day> days;
         public int currentDay;
         List<Player> players;
+        public int numberOfDaysToPlay;
 
         public Game()
         {
@@ -105,11 +106,28 @@ namespace LemonadeStand
             return playerName;
         }
 
+        public void SetNumberOfDaysToPlay()
+        {
+            Console.WriteLine($"How many days do you want to play? Must be 7 or more days!");
+            string userInput = Console.ReadLine();
+
+            bool result;
+            int choice;
+            result = int.TryParse(userInput, out choice);
+            while (choice < 7)
+            {
+                Console.WriteLine($"Please enter a valid choice");
+                userInput = Console.ReadLine();
+                result = int.TryParse(userInput, out choice);
+            }
+            numberOfDaysToPlay = int.Parse(userInput);
+        }
         public void RunGame()
         {
             DisplayRules();
             SetGameMode();
             CreatePlayer();
+            SetNumberOfDaysToPlay();
            
         }
     }

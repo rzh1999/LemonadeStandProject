@@ -16,8 +16,5 @@ namespace LemonadeStand
 
     }
 
-    public Player()
-    {
-
-    }
+   
 }
