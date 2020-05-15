@@ -8,5 +8,10 @@ namespace LemonadeStand
 {
     class Inventory
     {
+        public List<Lemon> lemons;
+        public List<IceCube> iceCubes;
+        public List<Cup> cups;
+        public List<SugarCube> sugarCubes;
+
     }
 }

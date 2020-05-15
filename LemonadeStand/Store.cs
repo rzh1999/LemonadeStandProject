@@ -8,5 +8,9 @@ namespace LemonadeStand
 {
     class Store
     {
+        public double pricePerLemon;
+        public double pricePerSugarCube;
+        public double pricePerIceCube;
+        public double pricePerCup;
     }
 }

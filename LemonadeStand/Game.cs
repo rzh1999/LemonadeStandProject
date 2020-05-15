@@ -9,7 +9,19 @@ namespace LemonadeStand
     class Game
     {
 
-        public int GameMode;
+        public int gameMode;
+        public Player player;
+        public List<Day> days;
+        public int currentDay;
+        List<Player> players;
+
+        public Game()
+        {
+            players = new List<Player>();
+            player = new Player();
+            players.Add(player);
+        }
+
         public void DisplayRules()
         {
             Console.WriteLine($"Welcome to the lemonade stand game!");
@@ -37,13 +49,71 @@ namespace LemonadeStand
                 userInput = Console.ReadLine();
                 result = int.TryParse(userInput, out choice);
             }
-            GameMode = choice;
+            gameMode = choice;
+        }
+
+        public void CreatePlayer()
+        {
+            //Player player = new Player();
+            switch (gameMode)
+            {
+                case 1:
+                    //Player player = new Player();
+                    Console.WriteLine($"Enter a players name:");
+                    player.name = Console.ReadLine();
+                    player.name = ValidatePlayerName(player.name);
+                    break;
+                case 2:
+                    Console.WriteLine($"Enter number of players:");
+                    string userInput = Console.ReadLine();
+                    bool result;
+                    int choice;
+                    result = int.TryParse(userInput, out choice);
+                    while (!result)
+                    {
+                        Console.WriteLine($"Please enter a valid choice");
+                        userInput = Console.ReadLine();
+                        result = int.TryParse(userInput, out choice);
+                    }
+                    for (int i = 0; i < choice; i++)
+                    {
+                        Player newPlayer = new Player();
+                        Console.WriteLine($"Enter a players name:");
+                        newPlayer.name = Console.ReadLine();
+                        newPlayer.name = ValidatePlayerName(newPlayer.name);
+                        players.Add(newPlayer);
+                    }
+                    break;
+                case 3:
+                    Player compPlayer = new Player();
+                    compPlayer.name = "Computer";
+                    players.Add(compPlayer);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        
+        public string ValidatePlayerName(string playerName)
+        {
+            while (String.IsNullOrEmpty(playerName))
+            {
+                Console.WriteLine($"Please enter a valid player name:");
+                playerName = Console.ReadLine();
+            }
+            return playerName;
         }
 
         public void RunGame()
         {
             DisplayRules();
             SetGameMode();
+            CreatePlayer();
+            foreach (Player item in players)
+            {
+                Console.WriteLine($"Players name is {item.name}");
+            }
         }
     }
 }
