@@ -15,4 +15,9 @@ namespace LemonadeStand
         public Pitcher pitcher;
 
     }
+
+    public Player()
+    {
+
+    }
 }

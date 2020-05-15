@@ -9,5 +9,11 @@ namespace LemonadeStand
     class Wallet
     {
         public double money;
+
+        public Wallet()
+        {
+            //Start with $20
+            money = 20.0;
+        }
     }
 }

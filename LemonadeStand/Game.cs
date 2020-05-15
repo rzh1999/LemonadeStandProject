@@ -110,10 +110,7 @@ namespace LemonadeStand
             DisplayRules();
             SetGameMode();
             CreatePlayer();
-            foreach (Player item in players)
-            {
-                Console.WriteLine($"Players name is {item.name}");
-            }
+           
         }
     }
 }
